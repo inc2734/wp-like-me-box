@@ -13,5 +13,6 @@ class Sample_Test extends WP_UnitTestCase {
 	 * @test
 	 */
 	public function sample() {
+		new Inc2734\WP_Like_Me_Box\Like_Me_Box();
 	}
 }
