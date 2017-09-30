@@ -5,6 +5,9 @@
  * @license GPL-2.0+
  */
 
+/**
+ * Display Like Me box like viral media
+ */
 class Inc2734_WP_Like_Me_Box {
 
 	public function __construct() {
@@ -40,7 +43,10 @@ class Inc2734_WP_Like_Me_Box {
 			return;
 		}
 
+		// @todo Using setter method
+		// @codingStandardsIgnoreStart
 		extract( $attributes );
+		// @codingStandardsIgnoreEnd
 		include( $path );
 	}
 }
