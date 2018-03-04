@@ -14,10 +14,6 @@ $ composer require inc2734/wp-like-me-box
 <?php
 // When Using composer auto loader
 new Inc2734\WP_Like_Me_Box\Like_Me_Box();
-
-// When not Using composer auto loader
-// include_once( get_theme_file_path( '/vendor/inc2734/wp-like-me-box/src/wp-like-me-box.php' ) );
-// new Inc2734_WP_Like_Me_Box();
 ```
 
 ## Shortcode
