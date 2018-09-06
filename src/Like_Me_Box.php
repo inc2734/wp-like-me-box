@@ -13,6 +13,10 @@ class Like_Me_Box {
 		load_textdomain( 'inc2734-wp-like-me-box', __DIR__ . '/languages/' . get_locale() . '.mo' );
 
 		add_shortcode( 'wp_like_me_box', array( $this, '_shortcode' ) );
+
+		add_action( 'wp_enqueue_scripts', [ $this, '_enqueue_styles' ] );
+		add_action( 'enqueue_block_editor_assets', [ $this, '_enqueue_styles' ] );
+		add_action( 'after_setup_theme', [ $this, '_add_editor_style' ] );
 	}
 
 	/**
@@ -47,5 +51,38 @@ class Like_Me_Box {
 		extract( $attributes );
 		// @codingStandardsIgnoreEnd
 		include( $path );
+	}
+
+	/**
+	 * Enqueue styles
+	 *
+	 * @return void
+	 */
+	public function _enqueue_styles() {
+		$relative_path = '/vendor/inc2734/wp-like-me-box/src/assets/css/wp-like-me-box.min.css';
+		$src  = get_template_directory_uri() . $relative_path;
+		$path = get_template_directory() . $relative_path;
+
+		if ( ! file_exists( $path ) ) {
+			return;
+		}
+
+		wp_enqueue_style(
+			'wp-like-me-box',
+			$src,
+			[],
+			filemtime( $path )
+		);
+	}
+
+	/**
+	 * Add editor style
+	 *
+	 * @return void
+	 */
+	public function _add_editor_style() {
+		add_editor_style( [
+			'vendor/inc2734/wp-like-me-box/src/assets/css/wp-like-me-box.min.css',
+		] );
 	}
 }
