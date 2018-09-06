@@ -2,7 +2,6 @@
   "name": "inc2734/wp-like-me-box",
   "description": "A library for WordPress that added Facebook like me box for article.",
   "license": "GPL-2.0-or-later",
-  "version": "0.1.6",
   "require": {
     "php": ">=5.6"
   },
