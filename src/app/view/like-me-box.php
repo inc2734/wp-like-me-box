@@ -25,11 +25,13 @@
 		<div class="wp-like-me-box__like">
 			<?php
 			$facebook_page_url = sprintf(
-				'https://www.facebook.com/%1$s/',
+				'https://www.facebook.com/%1$s',
 				apply_filters( 'inc2734_wp_like_me_box_facebook_page_name', $facebook_page_name )
 			);
 			?>
-			<iframe src="https://www.facebook.com/plugins/like.php?href=<?php echo urlencode( esc_url( $facebook_page_url ) ); ?>&amp;width=106&amp;layout=button_count&amp;action=like&amp;size=small&amp;show_faces=false&amp;share=false&amp;height=21" width="106" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+			<iframe src="https://www.facebook.com/plugins/like.php?href=<?php echo urlencode( esc_url( $facebook_page_url ) ); ?>&layout=button_count&action=like&size=small&show_faces=false&share=false" width="106" height="21" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+
+
 		</div>
 
 		<div class="wp-like-me-box__lead">
