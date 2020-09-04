@@ -7,7 +7,7 @@
 
 namespace Inc2734\WP_Like_Me_Box;
 
-class Like_Me_Box {
+class Bootstrap {
 
 	public function __construct() {
 		load_textdomain( 'inc2734-wp-like-me-box', __DIR__ . '/languages/' . get_locale() . '.mo' );
