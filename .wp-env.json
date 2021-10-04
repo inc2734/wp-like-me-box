@@ -1,0 +1,9 @@
+{
+  "core": null,
+  "mappings": {
+    "wp-content/plugins/wp-like-me-box": "./"
+  },
+  "config": {
+    "WP_DEBUG": true
+  }
+}

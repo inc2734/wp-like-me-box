@@ -2,23 +2,32 @@
   "author": "inc2734",
   "license": "GPL-2.0+",
   "devDependencies": {
-    "@wordpress/browserslist-config": "^2.7.0",
+    "@wordpress/browserslist-config": "^4.1.0",
+    "@wordpress/env": "^4.1.0",
     "autoprefixer": "^9.8.6",
     "cpy-cli": "^3.1.1",
-    "cssnano-cli": "^1.0.5",
-    "node-sass": "^4.14.1",
+    "cssnano": "^5.0.7",
+    "node-sass": "^6.0.1",
     "npm-run-all": "^4.1.5",
-    "postcss-cli": "^7.1.2",
+    "postcss": "^8.3.6",
+    "postcss-cli": "^8.3.1",
     "rimraf": "^3.0.2"
   },
   "scripts": {
+    "wp-env": "wp-env",
+    "start": "wp-env start",
+    "stop": "wp-env stop",
+    "cli": "wp-env run cli",
+    "wp": "wp-env run cli wp",
+    "pretest": "wp-env start && wp-env run composer 'install --no-interaction'",
+    "test:lint:php": "wp-env run composer run-script lint",
+    "test:lint": "run-s test:lint:*",
+    "test:unit:php": "wp-env run phpunit 'phpunit -c /var/www/html/wp-content/plugins/wp-like-me-box/.phpunit.xml.dist --verbose'",
+    "test:unit": "run-s test:unit:*",
+    "test": "run-s test:*",
     "cleanup:css": "rimraf src/assets/css",
-    "css:sass": "node-sass src/src/css -o src/assets/css",
-    "css:postcss": "postcss src/assets/css/**/*.css -r --no-map -c=postcss.config.js",
-    "minify:css": "cssnano src/assets/css/wp-like-me-box.css src/assets/css/wp-like-me-box.min.css --no-zindex",
-    "css": "npm-run-all -s cleanup:css css:sass css:postcss minify:css",
-    "start": "npm run build",
-    "build": "npm run css",
-    "postinstall": "npm run build"
+    "css:app": "node-sass src/src/css/wp-like-me-box.scss src/assets/css/wp-like-me-box.css && postcss -r src/assets/css/wp-like-me-box.css -c=postcss.config.js",
+    "css": "run-s cleanup:css css:*",
+    "build": "npm run css"
   }
 }
