@@ -1,6 +1,10 @@
+@charset 'UTF-8';
+
+@import '../../../node_modules/sass-basis/src/css/basis-core';
+
 .wp-like-me-box {
   display: flex;
-  background-color: #111;
+  background-color: _var-color-black();
 
   &__figure {
     flex: none;
@@ -9,13 +13,8 @@
     background-repeat: no-repeat;
     width: 40%;
 
-    @media (min-width: 40em) {
+    @include _media-min(md) {
       width: 50%;
-    }
-
-    > * {
-      vertical-align: top;
-      margin-top: 0.25rem;
     }
   }
 
@@ -26,10 +25,10 @@
     justify-content: space-between;
     flex-wrap: wrap;
     text-align: center;
-    padding: 1rem;
+    @include _padding(.5);
 
-    @media (min-width: 40em) {
-      padding: 1.5rem;
+    @include _media-min(md) {
+      @include _padding(1);
     }
 
     > * {
@@ -38,15 +37,15 @@
   }
 
   &__title {
+    @include _margin(0, 0, .5);
     margin: 0 0 1rem;
-    font-size: 12px;
-    line-height: 1.33333;
-    color: #fff;
+    @include _font-size-line-height(12px);
+    color: _var-color-white();
     font-weight: bold;
 
-    @media (min-width: 40em) {
-      margin: 0 0 1.5rem;
-      font-size: 24px;
+    @include _media-min(md) {
+      @include _margin(0, 0, 1);
+      @include _font-size-line-height(24px);
     }
   }
 
@@ -57,14 +56,13 @@
   }
 
   &__lead {
-    margin: 1rem 0 0;
-    font-size: 11px;
-    line-height: 1.5;
-    color: #ccc;
+    @include _margin(.5, 0, 0);
+    @include _font-size-line-height(12px);
+    color: _var-light-color-gray();
 
-    @media (min-width: 40em) {
-      margin: 1.5rem 0 0;
-      font-size: 14px;
+    @include _media-min(md) {
+      @include _margin(1, 0, 0);
+      @include _font-size-line-height(14px);
     }
   }
 }
