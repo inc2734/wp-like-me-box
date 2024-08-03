@@ -37,7 +37,7 @@
 	&__title {
 		margin: 0 0 var(--_margin-1);
 		@include core.set-font-size-level(-1);
-		color: _var-color-white();
+		color: var(--_color-white);
 		font-weight: bold;
 
 		@include core.media-min(md) {
