@@ -1,4 +1,4 @@
-@import '../../../node_modules/sass-basis/src/css/basis-core';
+@use '../../../node_modules/sass-basis/src/css/core';
 
 .wp-like-me-box {
 	display: flex;
@@ -11,7 +11,7 @@
 		background-repeat: no-repeat;
 		width: 40%;
 
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			width: 50%;
 		}
 	}
@@ -25,7 +25,7 @@
 		text-align: center;
 		padding: var(--_padding-1);
 
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			padding: var(--_padding1);
 		}
 
@@ -36,13 +36,13 @@
 
 	&__title {
 		margin: 0 0 var(--_margin-1);
-		@include _set-font-size-level(-1);
+		@include core.set-font-size-level(-1);
 		color: _var-color-white();
 		font-weight: bold;
 
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			margin: 0 0 var(--_margin1);
-			@include _set-font-size-level(2);
+			@include core.set-font-size-level(2);
 		}
 	}
 
@@ -54,10 +54,10 @@
 
 	&__lead {
 		margin: var(--_margin-1) 0 0;
-		@include _set-font-size-level(-1);
+		@include core.set-font-size-level(-1);
 		color: var(--_light-color-gray);
 
-		@include _media-min(md) {
+		@include core.media-min(md) {
 			margin: var(--_margin1) 0 0;
 		}
 	}
