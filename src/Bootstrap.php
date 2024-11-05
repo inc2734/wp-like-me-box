@@ -13,11 +13,17 @@ class Bootstrap {
 	 * Constructor.
 	 */
 	public function __construct() {
-		load_textdomain( 'inc2734-wp-like-me-box', __DIR__ . '/languages/' . get_locale() . '.mo' );
-
 		add_shortcode( 'wp_like_me_box', array( $this, '_shortcode' ) );
 
+		add_action( 'init', array( $this, '_init' ) );
 		add_action( 'enqueue_block_assets', array( $this, '_enqueue_styles' ), 9 );
+	}
+
+	/**
+	 * Load textdomain.
+	 */
+	public function _init() {
+		load_textdomain( 'inc2734-wp-like-me-box', __DIR__ . '/languages/' . get_locale() . '.mo' );
 	}
 
 	/**
